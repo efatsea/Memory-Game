@@ -57,7 +57,8 @@ function shuffle(array) {
 
     return array;
 }
-
+/*All the function about the timer is from 
+http://codingwithsara.com/stopwatch-with-javascript/ */
 function start(){ //starts the time
 	status=1;
 	timer();
@@ -128,6 +129,7 @@ function checkMatch(array){
 				addOpenCardToList(array);
 				fistCard= array.className;
 				click();
+
 			}
 			else if(openList.length===1 & array.className!==fistCard){
 				addOpenCardToList(array);
