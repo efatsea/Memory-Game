@@ -125,6 +125,8 @@ function gameOver(){
 /*it checks if two cards are equal or not*/
 function checkMatch(array){
 	setTimeout(function check(){
+			array.classList.add('show','open');
+		    cardShowClassElements = document.querySelectorAll('.show');
 			if (openList.length===0) {
 				addOpenCardToList(array);
 				fistCard= array.className;
@@ -145,22 +147,24 @@ function checkMatch(array){
 					click();
 				}
 				else {
-					cardShowClassElements[0].classList.remove('show','open');
-					cardShowClassElements[1].classList.remove('show','open');
-					cardShowClassElements = [];
-					openList =[];
-					click();
+					setTimeout(function remove(){
+						cardShowClassElements[0].classList.remove('show','open');
+						cardShowClassElements[1].classList.remove('show','open');
+						cardShowClassElements = [];
+						openList =[];
+						click();
+					},500);
+					
 					
 				}
 			}			
-		},500);
+		},100);
 }
 
 /*add to each card a click event and what it's going to happend*/
 function addClickEvent(array){
 	array.addEventListener('click',function(event){
-		array.classList.add('show','open');
-		cardShowClassElements = document.querySelectorAll('.show');
+		
 		checkMatch(array);
 		
 	})
